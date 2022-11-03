@@ -1,34 +1,34 @@
 import request from '@/utils/request'
 
-export function fetchList(query) {
+export function goodsList() {
   return request({
-    url: '/vue-element-admin/article/list',
-    method: 'get',
-    params: query
+    url: '/goods/toList',
+    method: 'get'
   })
 }
 
-export function fetchArticle(id) {
+export function fetchSeckillGoods(id) {
   return request({
-    url: '/vue-element-admin/article/detail',
+    url: '/goods/toList/' + id,
     method: 'get',
     params: { id }
   })
 }
 
-export function fetchPv(pv) {
+export function getPath(id) {
   return request({
-    url: '/vue-element-admin/article/pv',
-    method: 'get',
-    params: { pv }
+    url: '/seckill/path/' + id,
+    method: 'get'
   })
 }
 
-export function createArticle(data) {
+export function doseckill(data, id) {
   return request({
-    url: '/vue-element-admin/article/create',
+    url: '/seckill/' + data + '/doSeckill',
     method: 'post',
-    data
+    params: {
+      goodsId: id
+    }
   })
 }
 

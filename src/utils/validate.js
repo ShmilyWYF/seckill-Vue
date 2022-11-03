@@ -1,3 +1,19 @@
+export function validateUsername(rule, value, callback) {
+  const str = /^(?:(?:\+|00)86)?1[3-9]\d{9}$/
+  if (!str.test(value)) {
+    callback(new Error('请输入正确的用户名'))
+  } else {
+    callback()
+  }
+}
+export function validatePassword(rule, value, callback) {
+  if (value.length < 6) {
+    callback(new Error('密码不能小于6位数字'))
+  } else {
+    callback()
+  }
+}
+
 /**
  * Created by PanJiaChen on 16/11/18.
  */
